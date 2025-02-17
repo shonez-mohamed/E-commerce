@@ -12,7 +12,16 @@ export const serverRoutes: ServerRoute[] = [
   },
   
   {
-    {path:'productDetails/:productID' , 
+    path:'productDetails/:productID' , 
+    renderMode: RenderMode.Server,
+  }, 
+
+  {
+    path:'allOrders ' , 
+    renderMode: RenderMode.Server,
+  },
+  {
+    path:'cart' , 
     renderMode: RenderMode.Server,
   },
   
