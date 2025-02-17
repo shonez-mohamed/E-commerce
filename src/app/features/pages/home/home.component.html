@@ -1,1 +1,50 @@
-<p>home works!</p>
+<div class="flex">
+  <div class="w-3/4">
+    <div>Some tags before</div>
+    <owl-carousel-o [options]="customOptions1">
+  
+      @for (item of allProducts; track $index) {
+         <ng-template carouselSlide>
+          <img [src]="item.imageCover" >
+         </ng-template> 
+      }
+        
+  
+  
+    </owl-carousel-o>
+    <div>Some tags after</div>
+  </div>
+  <div class="w-3/12">
+    <div>
+      <img src="/images/slider-image-1.jpeg" alt="">
+    </div>
+    <div>
+     <img src="/images/slider-image-2.jpeg" alt="">
+    </div>
+  </div>
+</div>
+
+
+<div>Some tags before</div>
+  <owl-carousel-o [options]="customOptions">
+
+    @for (item of allProducts; track $index) {
+       <ng-template carouselSlide>
+        <img [src]="item.imageCover" >
+       </ng-template> 
+    }
+      
+
+
+  </owl-carousel-o>
+  <div>Some tags after</div>
+
+<div class="grid sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-6 gap-3">
+    
+    @for(product of allProducts; track $index){
+       <app-card [cardProduct]="product"></app-card>
+    }
+    
+
+</div>
+

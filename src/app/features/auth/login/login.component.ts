@@ -34,7 +34,7 @@ export class LoginComponent {
                 if(res.message == 'success'){
                    localStorage.setItem('userToken', res.token)
                    
-                   this.authService.saveData()
+                   this.authService.getUserData()
 
                    this.router.navigate(['/home'])
 
