@@ -62,5 +62,9 @@
         </tbody>
     </table>
 </div>
+<div class="flex justify-between m-20">
 
-<button (click)="clear()" class="btn-red text-end">Clear Card</button>
+    <button (click)="clear()" class="btn-red">Clear Card</button>
+    <button [routerLink]="['/address' , cartID]" routerLinkActive="router-link-active"  class="btn-green">Checkout</button>
+    
+</div>

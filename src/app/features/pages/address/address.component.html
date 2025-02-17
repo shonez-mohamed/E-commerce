@@ -1,0 +1,20 @@
+
+<h2 class="text-center text-3xl text-green-700">Fill this Form</h2>
+<div class="w-9/12 mx-auto my-8">
+    <form [formGroup]="addressForm" (ngSubmit)="addressSubmit()">
+        <div class="mb-3">
+            <label class="block mb-2 text-sm font-medium text-green-900 dark:text-white">Details : </label>
+            <input formControlName="details" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" />
+        </div> 
+        <div class="mb-3">
+            <label class="block mb-2 text-sm font-medium text-green-900 dark:text-white">Phone : </label>
+            <input formControlName="phone" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" />
+        </div> 
+        <div class="mb-3">
+            <label class="block mb-2 text-sm font-medium text-green-900 dark:text-white">City : </label>
+            <input formControlName="city" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" />
+        </div> 
+
+        <button type="submit" class="btn-green disabled:bg-green-400">Pay Now</button>
+    </form>
+</div>

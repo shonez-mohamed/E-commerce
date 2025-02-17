@@ -9,6 +9,8 @@ import { RegisterComponent } from './features/auth/register/register.component';
 import { NotFoundComponent } from './features/layout/not-found/not-found.component';
 import { authGuard } from './core/guards/auth/auth.guard';
 import { ProductDetailsComponent } from './features/pages/product-details/product-details.component';
+import { AllordersComponent } from './features/pages/allorders/allorders.component';
+import { AddressComponent } from './features/pages/address/address.component';
 
 export const routes: Routes = [
     {path:'' , redirectTo:'home' , pathMatch:'full'},
@@ -17,6 +19,8 @@ export const routes: Routes = [
     {path:'products' , component:ProductsComponent , canActivate:[authGuard], title:"Products"},
     {path:'categories' , component:CategoriesComponent , canActivate:[authGuard], title:"Categories"},
     {path:'brands' , component:BrandsComponent , canActivate:[authGuard], title:"Brands"},
+    {path:'allOrders' , component:AllordersComponent , canActivate:[authGuard], title:"All Orders"},
+    {path:'address/:cartID' , component:AddressComponent , canActivate:[authGuard], title:"Address"},
     {path:'productDetails/:productID' , component:ProductDetailsComponent , canActivate:[authGuard], title:"Product Details"},
 
     {path:'login' , component:LoginComponent , title:"Login"},

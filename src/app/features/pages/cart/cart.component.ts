@@ -2,11 +2,12 @@ import { Component, inject } from '@angular/core';
 import { CartService } from '../../../core/services/ecomm/cart/cart.service';
 import { ICartProduct } from '../../../shared/interfaces/product-cart';
 import { ToastrService } from 'ngx-toastr';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-cart',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss'
 })
@@ -15,6 +16,8 @@ export class CartComponent {
    private cartServices:CartService = inject(CartService)
  
    private toastrService  : ToastrService = inject(ToastrService)
+
+    cartID : string = ''
 
    totalPrice : number = 0
 
@@ -28,6 +31,7 @@ export class CartComponent {
       next: (res)=> {
         this.cartProducts = res.data.products
         this.totalPrice = res.data.totalCartPrice
+        this.cartID = res.cartId
       },
       error : (err)=>{
         console.log(err)
@@ -76,4 +80,5 @@ export class CartComponent {
       }
     })
   }
+
 }
