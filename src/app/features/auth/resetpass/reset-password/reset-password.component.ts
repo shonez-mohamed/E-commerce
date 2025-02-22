@@ -24,6 +24,11 @@ export class ResetPasswordComponent {
 
 
   resetSubmit(){
-    
+    this.forgetpassService.resetPassword(this.resetPassForm.value).subscribe({
+       next : (res) => {
+        localStorage.setItem('userToken' , res.token)
+        this.router.navigate(['/home'])
+       }
+    })
   }
 }

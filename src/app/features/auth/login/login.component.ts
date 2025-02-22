@@ -31,7 +31,7 @@ export class LoginComponent {
     
             this.authService.sendLogintoAPI(this.loginForm.value).subscribe({
               next : (res)=>{
-                if(res.message == 'success'){
+                if(res.message== 'success'){
                    localStorage.setItem('userToken', res.token)
                    
                    this.authService.getUserData()

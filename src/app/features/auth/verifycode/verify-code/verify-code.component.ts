@@ -22,7 +22,7 @@ export class VerifyCodeComponent {
    codeSubmit(){
      this.forgetpassService.resetCode(this.verifyCode.value).subscribe({
        next : (res) => {
-          if(res.statusMsg == 'success'){
+          if(res.status == 'Success'){
              this.router.navigate(['resetpass'])
           }
        }
