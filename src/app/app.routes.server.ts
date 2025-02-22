@@ -1,10 +1,10 @@
 import { RenderMode, ServerRoute } from '@angular/ssr';
 
 export const serverRoutes: ServerRoute[] = [
-  {
-    path: 'home', 
-    renderMode: RenderMode.Server,
-  },
+  // {
+  //   path: 'home', 
+  //   renderMode: RenderMode.Server,
+  // },
   
   {
     path:'address/:cartID', 
@@ -16,14 +16,14 @@ export const serverRoutes: ServerRoute[] = [
     renderMode: RenderMode.Server,
   }, 
 
-  {
-    path:'allOrders ' , 
-    renderMode: RenderMode.Server,
-  },
-  {
-    path:'cart' , 
-    renderMode: RenderMode.Server,
-  },
+  // {
+  //   path:'allOrders ' , 
+  //   renderMode: RenderMode.Server,
+  // },
+  // {
+  //   path:'cart' , 
+  //   renderMode: RenderMode.Server,
+  // },
   
   {
     path: '**',

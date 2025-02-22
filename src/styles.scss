@@ -5,6 +5,9 @@
 @tailwind utilities;
 
 
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+
 .btn-green{
     @apply bg-green-700 text-white border border-white p-3 rounded-full;
 }
@@ -13,5 +16,3 @@
     @apply bg-red-700 text-white border border-white p-3 rounded-full;
 }
 
-@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
-@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';

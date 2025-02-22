@@ -1,19 +1,15 @@
-<div class="flex">
+<div class="flex ">
   <div class="w-3/4">
-    <div>Some tags before</div>
-    <owl-carousel-o [options]="customOptions1">
-  
-      @for (item of allProducts; track $index) {
-         <ng-template carouselSlide>
-          <img [src]="item.imageCover" >
-         </ng-template> 
-      }
-        
-  
-  
-    </owl-carousel-o>
-    <div>Some tags after</div>
-  </div>
+   <owl-carousel-o [options]="customOptions1">
+   @for (img of images ; track $index) {
+    <ng-template carouselSlide>
+      <img [src]="img" alt="Carousel Image" class="carousel-image">
+    </ng-template>
+  }
+   </owl-carousel-o>
+
+</div>
+
   <div class="w-3/12">
     <div>
       <img src="/images/slider-image-1.jpeg" alt="">
@@ -25,7 +21,7 @@
 </div>
 
 
-<div>Some tags before</div>
+
   <owl-carousel-o [options]="customOptions">
 
     @for (item of allProducts; track $index) {
@@ -34,14 +30,14 @@
        </ng-template> 
     }
       
-
-
   </owl-carousel-o>
-  <div>Some tags after</div>
+
+
+  <input type="text" [(ngModel)]="searchWord" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-1/4 my-5 mx-auto p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Search..."/>
 
 <div class="grid sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-6 gap-3">
     
-    @for(product of allProducts; track $index){
+    @for(product of allProducts | search: searchWord ; track $index){
        <app-card [cardProduct]="product"></app-card>
     }
     

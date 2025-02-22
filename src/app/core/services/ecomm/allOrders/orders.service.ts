@@ -10,11 +10,11 @@ export class OrdersService {
    
    private httpClient = inject(HttpClient)
 
-   private userHeaders:any = {token : localStorage.getItem('userToken')}
+
 
   constructor() { }
 
   checkout(cartID:string , data:object):Observable<any> {
-     return this.httpClient.post(`${Env.baseURL}/api/v1/orders/checkout-session/${cartID}?url=${Env.webURL}` , {shippingAddress : data } , {headers : this.userHeaders})
+     return this.httpClient.post(`${Env.baseURL}/api/v1/orders/checkout-session/${cartID}?url=${Env.webURL}` , {shippingAddress : data })
   }
 }
