@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal, WritableSignal } from '@angular/core';
 import { CartService } from '../../../core/services/ecomm/cart/cart.service';
 import { ICartProduct } from '../../../shared/interfaces/product-cart';
 import { ToastrService } from 'ngx-toastr';
@@ -19,7 +19,7 @@ export class CartComponent {
 
     cartID : string = ''
 
-   totalPrice : number = 0
+   totalPrice : WritableSignal<number> = signal<number>(0)
 
    cartProducts :ICartProduct[] = []
   ngOnInit(): void {
@@ -30,7 +30,7 @@ export class CartComponent {
     this.cartServices.getAllCart().subscribe({
       next: (res)=> {
         this.cartProducts = res.data.products
-        this.totalPrice = res.data.totalCartPrice
+        this.totalPrice.set(res.data.totalCartPrice)
         this.cartID = res.cartId
       },
       error : (err)=>{

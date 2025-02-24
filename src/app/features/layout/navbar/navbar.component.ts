@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, effect, inject } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../../../core/services/auth/auth.service';
 import { TranslationService } from './../../../core/services/translate/translation.service';
@@ -17,24 +17,36 @@ export class NavbarComponent {
   private router = inject(Router)
   isLogin : boolean = false;
 
-  ngOnInit(): void {
-    this.authService.userData.subscribe(()=>{
-      
-      if(this.authService.userData.getValue() == null){
-        this.isLogin = false 
-      }
-      else{
-        this.isLogin = true 
-      }
-
-    })
-    
+  constructor(){
+    effect(()=>{
+      if(this.authService.userData() == null){
+        this.isLogin = false
+       }
+       else{
+         this.isLogin = true
+       }
+   })
   }
+
+ // ngOnInit(): void {
+
+    // this.authService.userData.subscribe(()=>{
+      
+    //   if(this.authService.userData.getValue() == null){
+    //     this.isLogin = false 
+    //   }
+    //   else{
+    //     this.isLogin = true 
+    //   }
+
+    // })
+    
+  //}
 
   logout(){
     localStorage.removeItem('userToken')
     this.router.navigate(['/login']);
-    this.authService.userData.next(null)
+    this.authService.userData.set(null)
   }
 
   changeLang(lang: string) {

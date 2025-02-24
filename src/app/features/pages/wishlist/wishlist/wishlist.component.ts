@@ -17,6 +17,7 @@ export class WishlistComponent {
 
     wishlistProducts : IProductWishlist[] = []
 
+
    ngOnInit(): void {
     this.getMyWishlist()
    }
@@ -50,4 +51,7 @@ export class WishlistComponent {
       }
      })
   }
+ 
+  
+
 }

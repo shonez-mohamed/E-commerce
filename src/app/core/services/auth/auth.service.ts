@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { inject, Injectable, signal, WritableSignal } from '@angular/core';
+import { Observable } from 'rxjs';
 import { jwtDecode } from "jwt-decode";
 import { PlatformService } from './../platForm/platform.service';
 import { Env } from '../../Environment/Environment';
@@ -16,7 +16,7 @@ export class AuthService {
    private http= inject(HttpClient)
    private platformService = inject(PlatformService)
 
-  userData : BehaviorSubject<any> = new BehaviorSubject(null);
+  userData : WritableSignal<string|null> =  signal<string|null>(null);
 
 
   constructor() {
@@ -35,7 +35,7 @@ export class AuthService {
   }
   
   getUserData(){
-    this.userData.next( jwtDecode( JSON.stringify(localStorage.getItem('userToken')) ))
+    this.userData.set( jwtDecode( JSON.stringify(localStorage.getItem('userToken')) ))
   }
 
 }

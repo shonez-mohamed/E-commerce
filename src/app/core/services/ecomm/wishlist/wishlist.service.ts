@@ -24,5 +24,6 @@ export class WishlistService {
   getLoggedUserWishlist():Observable<any>{
     return this.httpClient.get(`${Env.baseURL}/api/v1/wishlist`)
   }
+
   
 }
